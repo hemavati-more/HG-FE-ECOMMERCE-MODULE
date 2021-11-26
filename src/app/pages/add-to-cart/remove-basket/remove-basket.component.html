@@ -1,0 +1,32 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="">
+    <h4 class="modal-title-remove mt-4 p-3" id="modal-basic-title">
+      Remove Basket
+    </h4>
+  </div>
+  <div>
+    <p class="p-2">
+      Are you sure you want to remove this items from your basket?
+    </p>
+  </div>
+  <br />
+  <div class="text-center">
+    <button
+      type="button"
+      class="btn btn-secondary btn-cancel"
+      (click)="close()"
+    >
+      Cancel
+    </button>
+    &nbsp;&nbsp;
+    <button type="button" class="btn btn-remove" 
+    (click)="addNewItem(removeProduct);">
+      Remove
+    </button>
+  </div>
+  <br />
+</ng-template>
+
+<button class="btn" (click)="open(content)">
+  <i class="fa fa-trash-o"></i> <span class="text-mute ml-1 px-2">Remove</span>
+</button>

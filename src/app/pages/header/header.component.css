@@ -1,0 +1,41 @@
+.header-nav {
+  height: 200px;
+  border-radius: 0px 0px 0px 50px;
+  background: #00988d 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.navbar-block {
+  height: 200px;
+  background: #f67776 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.navbar-brand {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) 39px/52px Oswald;
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: left;
+  font: normal normal bold 39px/52px Oswald;
+  letter-spacing: 0px;
+  color: #fff;
+  opacity: 1;
+}
+.top-nav a {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/32px Segoe UI;
+  text-align: left;
+  font: normal normal normal 14px/32px Segoe UI;
+  letter-spacing: 0.28px;
+  color: #fff;
+  opacity: 1;
+}
+.nav-list a {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-24) Segoe UI;
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: left;
+  font: normal normal normal 18px/24px Segoe UI;
+  letter-spacing: 0px;
+  color: #fff;
+  opacity: 1;
+}
+a, .hr-line {
+  text-decoration: none;
+  color: #fff;
+}

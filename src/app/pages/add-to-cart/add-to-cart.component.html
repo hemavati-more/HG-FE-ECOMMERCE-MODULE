@@ -1,0 +1,320 @@
+<div class="loader" *ngIf="showLoading">
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+</div>
+
+<div class="page-content">
+  <br />
+  <div *ngIf="products.length > 0">
+    <div class="row">
+      <div class="col-md-4 col-lg-6 col-xl-1"></div>
+      <div class="col-md-4 col-lg-6 col-xl-10">
+        <span><a href="#"> Home </a> > My Cart </span>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-4 col-lg-6 col-xl-1"></div>
+      <div class="col-md-4 col-lg-6 col-xl-6 card">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4 class="mt-4">
+                <b>My Cart ({{ products.length }})</b>
+              </h4>
+            </div>
+            <a [routerLink]="['/product']" class="mt-4 ">
+              <span class="col align-self-center text-right add-new-item">
+                Add New Item
+              </span>
+            </a>
+          </div>
+          <hr />
+          <div class="row border">
+            <div class="d-flex flex-row">
+              <div class="p-2">
+                <img class="cart-img" src="{{ products[0].image }}" />
+              </div>
+              <div class="p-2"></div>
+              <div class="p-2">
+                <span class="cart-prod-name">{{ products[0].name }}</span>
+                <div
+                  class="text-muted"
+                  [innerHTML]="truncateChar(products[0].des)"
+                ></div>
+                <br />
+                <span>Save for Later</span>
+              </div>
+              <div class="p-2"></div>
+
+              <div class="p-2">
+                <br /><br /><br />
+                <app-remove-basket [removeProduct]="products"
+                (newItemEvent)="addItem($event)"></app-remove-basket>
+              </div>
+              <div class="p-2"></div>
+
+              <div class="p-2">
+                <p>$ {{ products[0].price }}</p>
+                <p class="text-muted">
+                  <span class="text-decoration-line"
+                    >${{ products[0].sale_price }}</span
+                  >
+                  <a href="#" class="offer-tag">74% </a>
+                </p>
+                <div
+                  class="btn-group mr-2"
+                  role="group"
+                  aria-label="First group"
+                >
+                  <button type="button" class="btn btn-light border"
+                  (click)="removeItem(products)">-</button>
+                  <button type="button" class="btn btn-light border">{{totalProduct}}</button>
+                  <button type="button" class="btn btn-light border" 
+                  (click)="addtocart(products)"
+                  >+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="row main align-items-center">
+              <div class="col-md-2">  
+                <img  class="cart-img"
+              src="{{ products[0].image }}" />
+              </div>
+              <div class="col-2"></div>
+              <div class="col-4">
+                <div class="row">{{products[0].name}}</div>
+                <div class="row text-muted"
+                [innerHTML]="products.short_description"></div>
+                <br />
+                <p>
+                  <span>Save for Later</span>
+
+                  <button class="btn" (click)="removeItem(products)">
+                    <i class="fa fa-trash-o"></i>
+                    <span class="text-mute ml-1 px-2">Remove</span>
+                  </button>
+                </p>
+              </div>
+              <div class="col-1"></div>
+              <div class="col-3">
+                <p>&euro; {{products[0].price}}</p>
+                <p class="text-muted">${{products[0].sale_price}} 74% off</p>
+                <div
+                  class="btn-group mr-2"
+                  role="group"
+                  aria-label="First group"
+                >
+                  <button type="button" class="btn btn-light border">-</button>
+                  <button type="button" class="btn btn-light border">1</button>
+                  <button type="button" class="btn btn-light border">+</button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-6 col-xl-4">
+        <div class="checkout-card pl-4">
+          <br />
+          <div class="coupon-card">
+          <a class="coupon-btn mt-4 px-4">
+            <span class="coupon-label">Apply Coupon </span>
+          </a>
+          <span class="move px-4">
+            <app-apply-coupon></app-apply-coupon>
+          </span>
+        </div>
+          <br /><br />
+          <input type="checkbox" class="check-type px-3" />
+          <span class="pl-3">Use 50 Earned Giggle Points (1 Pt = 1 $)</span>
+          <hr />
+          <p class="total-charges">Total Charges</p>
+          <hr />
+          <p>
+            <span class="subtotal">Subtotal</span>
+            <span class="subtotal-amount px-4">$150</span>
+          </p>
+          <p>Tax <span class="text-muted"> (Calculated in checkout)</span></p>
+          <p>
+            Shipping <span class="text-muted"> (free standard over $40)</span>
+            <span class="free-label px-4"><a href="#"> Free</a></span>
+          </p>
+          <p>
+            <span>Deliver to</span>
+            <span class="pincode-label px-4">
+              <input type="text" placeholder="PINCODE 600023" /><br />
+              <span class="text-muted">Delivery by Tomorrow, Thu</span>
+            </span>
+          </p>
+          <br />
+          <hr />
+          <p>
+            <span class="delivery-des">Delivery by Tomorrow, Thu</span>
+            <span class="amount px-4">${{grandTotal}}</span>
+          </p>
+          <hr />
+          <br />
+          <div class="discount">
+            <p class="px-4">You Saved $75.25 on your Purchase</p>
+            <hr />
+            <p class="px-4">
+              You will earn 100 Giggle Points with this purchase
+            </p>
+          </div>
+          <br />
+
+          <button class="btn check-out col-lg-6 col-xl-8 px-4"
+          [routerLink]="['/checkOut']"
+          >Checkout</button>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    </div>
+    <br />
+  </div>
+  <br />
+  <div class="row" *ngIf="products.length == 0">
+    <div class="col-md-4 col-lg-6 col-xl-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-6">
+      <h4>Your cart is empty!</h4>
+      <br />
+      <h6>Add item to it now</h6>
+      <br />
+      <button [routerLink]="['/product']" class="btn btn-primary">
+        Shop Now
+      </button>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-4">
+      <p class="recommened-prod">Recommended Products</p>
+    </div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-1">
+      <a
+        class="carousel-control-prev"
+        href="#myCarousel"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-8">
+      <div id="dataInfo">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div
+                  class="col-md-4 col-lg-6 col-xl-3"
+                  *ngFor="let item of recommendedProducts"
+                >
+                  <div class="card">
+                    <i
+                      class="fa fa-heart-o text-pink fa-lg mt-2 p-2"
+                      aria-hidden="true"
+                    ></i>
+                    <img
+                      class="card-img-top img-fluid"
+                      src="{{ item.image.src }}"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <p class="article-label">{{ item.name }}</p>
+                      <div class="text-label text-muted"
+                      [innerHTML]= "truncateRecommendedChar(item.short_description)"
+                      ></div>
+                      <p class="text-label">${{ item.price }}</p>
+
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary bt-sm"
+                      >
+                        <span class="view-btn">View Product</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div
+                  class="col-md-4 col-lg-6 col-xl-3"
+                  *ngFor="let item of recommendedProducts"
+                >
+                  <div class="card">
+                    <i
+                      class="fa fa-heart-o text-pink fa-lg mt-2 p-2"
+                      aria-hidden="true"
+                    ></i>
+                    <img
+                      class="card-img-top img-fluid"
+                      src="{{ item.image.src }}"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <p class="article-label">{{ item.name }}</p>
+                      <div class="text-label text-muted"
+                      [innerHTML]= "truncateRecommendedChar(item.short_description)"
+                      ></div>
+                      <p class="article-date"> $ {{ item.price }}</p>
+                      <button
+                      type="button"
+                      class="btn btn-outline-secondary bt-sm"
+                    >
+                      <span class="view-btn">View Product</span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="carousel-indicators">
+            <li
+              data-target="#myCarousel"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1">
+      <a
+        class="carousel-control-next"
+        href="#myCarousel"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <app-join-family></app-join-family>
+
+</div>

@@ -1,0 +1,296 @@
+<div class="page-content">
+  <div class="row landing-img">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-9">
+      <header>
+        <!-- <svg id="svg" xmlns="http://www.w3.org/2000/svg"
+         viewBox="-300 0 950 270" >
+          <path d="M-314,267 C105,364 400,100 812,279"
+           fill="none" stroke="#EEF3F4" stroke-width="110" 
+           stroke-linecap="round"/>
+        </svg> -->
+      </header>
+      <!-- <img src="../../../assets/images/New-Banner.png"> -->
+    
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-2"></div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-9 mt-4">
+      <p class="product-title">Shop by Health Concerns</p>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4 view-all"
+    ><a [routerLink]="['/product']">View All</a></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10">
+      <div class="temp-list">
+        <div>
+          <div
+            class="activity-card-container small-activity"
+            *ngFor="let item of healthConcerns"
+          >
+            <div class="px-3">
+              <img src="{{ item.src }}" class="health-concerns-shop-img mt-3" />
+              <span class="health-concerns-text px-2">{{ item.name }}</span>
+            </div>
+          </div>
+          <br />
+        </div>
+        <br />
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-6 col-xl-11"></div>
+
+        <div class="col-md-4 col-lg-6 col-xl-1 bd-highlight">
+          <div class="p-1 bd-highlight">
+            <span class="angle-icon"> <i class="fa fa-angle-right"></i> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10 mt-4">
+      <hr class="line" />
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-2 mt-4">
+      <p class="popular-categories-title">Popular Categories</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div
+      class="col-md-4 col-lg-6 col-xl-2"
+      *ngFor="let item of PopularCatList1; " 
+    >
+      <div class="card card-list">
+        <div class="card-body">
+          <img
+            *ngIf="item.image == [] || item.image == null"
+            src=" ../../../assets/images/SkinCare.png"
+          />
+          <img *ngIf="item.image" src="{{ item.image.src }}" />
+          <br /><br />
+          <p class="popular-text-label">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div
+      class="col-md-4 col-lg-6 col-xl-2"
+      *ngFor="let item of PopularCatList2"
+    >
+      <div class="card card-list">
+        <div class="card-body">
+          <img
+            *ngIf="item.image == null || item.image == []"
+            src=" ../../../assets/images/SkinCare.png"
+          />
+          <img *ngIf="item.image" src="{{ item.image.src }}" />
+          <br /><br />
+          <p class="popular-text-label">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10 offer-banner">
+      <br />
+      <div class="d-flex justify-content-around">
+        <div class="p-2">
+          <img src="../../../assets/images/offer.png" class="offer-img" />
+        </div>
+        <div class="p-2">
+          <img
+            src="../../../assets/images/all-item-off.png"
+            class="offer-img"
+          />
+        </div>
+        <div class="p-4">
+          <img src="../../../assets/images/shop-more.png"
+           class="offer-shop" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-9 mt-4 product-title">
+      Personal Care
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4 view-all">
+      <a [routerLink]="['/product']">View All </a></div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div
+      class="col-md-4 col-lg-6 col-xl-2"
+      *ngFor="let item of PersonalCareList"
+    >         
+
+      <div class="card card-list">
+        <div class="card-body">
+          <img
+            *ngIf="item.image == []"
+            src=" ../../../assets/images/SkinCare.png"
+          />
+          <img *ngIf="item.image" src="{{ item.image.src }}" />
+          <br /><br />
+          <p class="text-label-personal">{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10 explore-card">
+      <p class="explore-label mt-4 p-2 title">
+        Explore Beauty
+        <span class="explore-view-all" [routerLink]="['/product']">
+          View All
+        </span>
+      </p>
+
+      <div class="d-flex justify-content-around">
+        <div *ngFor="let item of PersonalCareList">
+          <div class="card card-list">
+            <div class="card-body">
+              <img
+                class="personal-care-img"
+                *ngIf="item.image == []"
+                src=" ../../../assets/images/SkinCare.png"
+              />
+              <img
+                class="personal-care-img"
+                *ngIf="item.image"
+                src="{{ item.image.src }}"
+              />
+              <br /><br />
+              <p class="personal-text-label">{{ item.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <br /><br /><br /><br />
+
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</div>
+<div class="health-category">
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-9 mt-4">
+      <p class="product-title">Health Advice Articles</p>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4 view-all">
+      <a [routerLink]="['/product']">View All </a></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1 mt-4"></div>
+
+    <div id="dataInfo">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div
+                class="col-md-4 col-lg-6 col-xl-3"
+                *ngFor="let item of shopCategory"
+              >
+                <div class="card">
+                  
+                  <div class="card-body">
+                    <img
+                    class="img-card"
+                    src="{{ item.image.src }}"
+                    alt="Card image cap"
+                  />
+                    <p class="article-label mt-4">{{ item.name }}</p>
+                    <br>
+                    <div class="text-label" 
+                    [innerHTML]="truncateChar(item.description)"></div>
+                    <p class="article-date">{{ item.image.date_created | customDate}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div
+                class="col-md-4 col-lg-6 col-xl-3"
+                *ngFor="let item of shopCategory"
+              >
+                <div class="card health-card">
+                  
+                  <div class="card-body">
+                    <img
+                    class="img-card"
+                    src="{{ item.image.src }}"
+                    alt="Card image cap"
+                  />
+                    <p class="article-label mt-4">{{ item.name }}</p>
+                    <br>
+                    <div class="text-label" 
+                    [innerHTML]="truncateChar(item.description)"></div>
+                    <p class="article-date">{{ item.image.date_created | customDate}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  <br>
+  <br>
+
+</div>
+
+<div class="health-category">
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-3 mt-4"></div>
+    <div class="col-md-4 col-lg-6 col-xl-5 mt-4">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    </div>
+  </div>
+    <app-join-family></app-join-family>
+</div>

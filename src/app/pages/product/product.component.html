@@ -1,0 +1,266 @@
+<div class="loader" *ngIf="showLoading">
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+  <div class="loader--dot"></div>
+</div>
+<div class="page-content">
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10">
+      <a [routerLink]="['/dashbord']">Home </a> > Product
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-3">
+      <div class="category-card">
+        <div class="card-header">
+          <span class="category-label">Category</span>
+        </div>
+        <br />
+        <span class="search-product"> Search Product</span>
+        <br /><br />
+        <div class="input-group rounded" id="searchId">
+          <input
+            type="search"
+            class="form-control rounded"
+            placeholder="Type in and hit Enter"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+
+          <span class="input-group-text" id="search-addon">
+            <i class="fa fa-search"></i>
+          </span>
+        </div>
+        <br />
+        <p class="filter-by">Filter by Categories</p>
+        <div class="filter-by-list">
+          <ul *ngFor="let item of filterByList" id="myUL">
+            <li>
+              <input type="checkbox" value="1" />
+              <span> {{ item.name }}</span>
+            </li>
+          </ul>
+        </div>
+ 
+        <button type="button" class="btn btn-category button">
+          <span class="view px-4">View more Categories</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-7">
+      <div class="row banner">
+        <div class="col-md-8">
+          <br />
+          <p class="natural-label">All Natural Skin Remedies.</p>
+          <blockquote class="natural-sub-label">
+            A healthier you from the inside out. We’ve sourced the cleanest
+            ingredients to create a line of clean skin care treatments that
+            leave you feeling your best
+          </blockquote>
+        </div>
+        <div class="col-md-2">
+          <img src="../../../assets/images/vitiligio.png" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-5 offer-type1">
+          <br />
+          <span class="offer-label"> 50 % OFF</span>
+          <br />
+          <span class="offer-title">On All Items</span>
+        </div>
+        <div class="col-md-2"></div>
+
+        <div class="col-md-5 offer-type2">
+          <br />
+          <span class="offer-label"> 80 % OFF</span>
+          <br />
+          <span class="offer-title">On All Covid Items</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-3">
+      <div class="Specals-card">
+        <div class="card-header">
+          <span class="category-label">Specials</span>
+        </div>
+        <br />
+        <div class="img-div">
+          <img src="{{ filterByList[7].images[0].src }}" class="view-img" />
+          <p class="pl-4 mt-2" *ngIf="filterByList[3].name">
+            {{ filterByList[7].name }}
+          </p>
+          <p class="pl-4 text-muted">{{ filterByList[7].slug }}</p>
+          <p class="pl-4 price-tag">${{ filterByList[7].price }}</p>
+          <button type="button" class="btn btn-category pl-4">
+            <span class="view px-4">View more Categories</span>
+          </button>
+        </div>
+        <br /><br />
+        <div class="img-div">
+          <img src="{{ filterByList[9].images[0].src }}" class="view-img" />
+          <p class="pl-4 mt-2" *ngIf="filterByList[1].name">
+            {{ filterByList[9].name }}
+          </p>
+          <p class="pl-4 text-muted">{{ filterByList[9].slug }}</p>
+          <p class="pl-4 price-tag">${{ filterByList[9].price }}</p>
+          <button type="button" class="btn btn-category pl-4">
+            <span class="view px-4">View more Categories</span>
+          </button>
+        </div>
+      </div>
+      <br />
+      <div class="trending-Blogs">
+        <div class="card-header">
+          <span class="category-label">Trending Blogs</span>
+        </div>
+        <div class="img-div mt-4">
+          <img
+            src="{{ filterByList[5].images[0].src }}"
+            class="img-view-blog mt-2"
+          />
+          <br />
+          <span class="text px-2 mt-2">Health</span>
+          <span class="yoga">- Food</span><br />
+          <hr class="hr-line" />
+          <br />
+          <blockquote class="yoga-label px-2 mt-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+          </blockquote>
+          <blockquote class="px-2 mt-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+          </blockquote>
+          <p class="know-more px-2 mt-2">
+            Know More &nbsp;<i class="fa fa-arrow-right"></i>
+          </p>
+          <br />
+        </div>
+        <br />
+      </div>
+      <br />
+      <div class="trending-Blogs">
+        <div class="card-header">
+          <span class="category-label">Trending Video</span>
+        </div>
+        <div class="img-div mt-3">
+          
+          <iframe
+            class="mt-2 p-4"
+            width="260"
+            height="200"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          >
+          </iframe>
+          <br />
+          <span class="text">Health </span> <span class="yoga">- Yoga</span
+          ><br />
+          <hr class="hr-line" />
+          <br />
+          <blockquote class="yoga-label">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+          </blockquote>
+          <br />
+          <br />
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-7">
+      <div class="row sub-banner">
+        <div class="col-md-7">
+          <br />
+          <p class="sub-label">(Showing 1 – 24 products of 263 products)</p>
+        </div>
+        <div class="col-md-4 recommended mt-2">
+          <div class="dropdown">
+            <button
+              type="button"
+              class="btn dropdown-toggle"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <b>Sort by </b>: Recommended
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">
+                Another action
+              </button>
+              <button class="dropdown-item" type="button">
+                Something else here
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div
+          class="col-md-4 col-lg-4 col-xl-4 mt-4"
+          *ngFor="let item of showProducts; let i = index"
+        >
+          <div class="card card-item">
+            <i
+              class="fa fa-heart-o text-pink fa-lg mt-1 p-2"
+              aria-hidden="true"
+            ></i>
+            <img
+              *ngIf="item.image.src"
+              src="{{ item.image.src }}"
+              class="prod-img"
+              (click)="getProductDetail(item.id)"
+            />
+            <ul class="product-info mt-2">
+              <li *ngIf="item.name" class="mt-4 pl-4">{{ item.name }}</li>
+              <li *ngIf="item.short_description" class="pl-4 text-muted">
+                <div [innerHTML]="truncateChar(item.short_description)"></div>
+              </li>
+              <li *ngIf="item.price" class="pl-4 price-tag">
+                $ {{ item.price }}
+              </li>
+            </ul>
+            <button type="button" class="btn btn-outline-success bt-sm button">
+              <span class="view-btn" (click)="getProductDetail(item.id)"
+                >View Product</span
+              >
+            </button>
+
+           
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+  </div>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-6"></div>
+    <div class="col-md-4 col-lg-6 col-xl-6">
+      <button class="btn view-more">
+        <span class="view-more-label">View more</span>
+      </button>
+    </div>
+  </div>
+  <br /><br />
+  <app-join-family></app-join-family>
+
+</div>

@@ -1,0 +1,59 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10">
+
+    <h6 class="modal-title-remove mt-4 p-3" id="modal-basic-title">
+      Apply Coupon
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </h6>
+   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-lg-6 col-xl-1"></div>
+    <div class="col-md-4 col-lg-6 col-xl-10">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Code"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+      />
+      <div class="input-group-append">
+        <button class="btn apply-btn" type="button">Apply</button>
+      </div>     
+    </div>
+    <hr>
+    <p class="coupon-label ">Coupon</p>
+    <p><span class="web-label-text">HealthGiggles</span> <span class="apply-btn">APPLY</span></p>
+    <p class="text-muted">Get up to 25% off on your first allopathy medicine order</p>
+    <p class="text-muted">
+      Coupon code : HGNEW21 <br />
+      Valid Till : 22nd Oct 2021
+      <span class="view-detail"><a>View details</a></span>
+    </p>
+    <hr>
+    <p><span class="web-label-text">HealthGiggles</span> <span class="apply-btn">APPLY</span></p>
+    <p class="text-muted">Get up to 25% off on your first allopathy medicine order</p>
+    <p class="text-muted">
+      Coupon code : HGNEW21 <br />
+      Valid Till : 22nd Oct 2021
+      <span class="view-detail"><a>View details</a></span>
+    </p>
+
+    </div>
+  </div>
+  <br />
+
+  <br />
+</ng-template>
+
+<span class="badge badge-pill badge-blue ml-4"
+(click)="open(content)" ><i class="fa fa-angle-right fa-lg"></i
+            >  
+
+          </span>
